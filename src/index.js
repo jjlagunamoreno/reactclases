@@ -8,6 +8,7 @@ import DibujosComplejosReact from './components/DibujosComplejosReact';
 import PadreDeportes from './components/PadreDeportes';
 import PadreNumeros from './components/PadreNumeros';
 import Ruleta from './components/Ruleta';
+import Comics from './components/Comics';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,10 +27,13 @@ root.render(
     {/* <PadreDeportes /> */}
 
     {/* Ejercicio Sumar Números con Padre e Hijos */}
-    <PadreNumeros />
+    {/* <PadreNumeros /> */}
 
     {/* Proyecto por mi mismo de ruleta de casino */}
-    <Ruleta />
+    {/* <Ruleta /> */}
+
+    {/* Proyecto por mi mismo de Comics de casino */}
+    <Comics />
   </React.StrictMode>
 );
 
