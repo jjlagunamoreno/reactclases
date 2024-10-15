@@ -45,9 +45,12 @@ const Ruleta = () => {
     const [resultado, setResultado] = useState(null);
     const [girando, setGirando] = useState(false);
     const [angulo, setAngulo] = useState(0);
+    const [anguloPelota, setAnguloPelota] = useState(0);
+    const [pelotaGirando, setPelotaGirando] = useState(true);
 
     const girarRuleta = () => {
         setGirando(true);
+        setPelotaGirando(true);  // Reiniciar la animación de la pelota al iniciar el giro
 
         // Selecciona un número ganador aleatorio
         const indiceGanador = Math.floor(Math.random() * numerosRuleta.length);
@@ -58,10 +61,15 @@ const Ruleta = () => {
         const nuevoAngulo = 360 * 5 + (indiceGanador * anguloPorNumero); // 5 vueltas completas + ajuste para el número
         setAngulo(nuevoAngulo);
 
+        // Calcula el ángulo de la pelota para que coincida con el número ganador
+        const anguloPelotaFinal = 360 - (indiceGanador * anguloPorNumero);
+        setAnguloPelota(anguloPelotaFinal);
+
         // Establece el número ganador después de la rotación
         setTimeout(() => {
             setResultado(numeroGanador);
             setGirando(false);
+            setPelotaGirando(false);  // Detener la pelota en su lugar
         }, 4000); // Tiempo de rotación de 4 segundos
     };
 
@@ -73,13 +81,16 @@ const Ruleta = () => {
                         key={index}
                         className={`numero-ruleta ${item.color}`}
                         style={{
-                            transform: `rotate(${(index * 360) / numerosRuleta.length}deg) translateY(-150px)` // Ajustamos translateY a -70px
+                            transform: `rotate(${(index * 360) / numerosRuleta.length}deg) translateY(-150px)`
                         }}
                     >
                         {item.numero}
                     </div>
                 ))}
-                <div className={`pelota ${girando ? "girando-pelota" : ""}`}></div>
+                <div
+                    className={`pelota ${pelotaGirando ? "girando-pelota" : ""}`}
+                    style={{ transform: `rotate(${anguloPelota}deg) translateX(150px)` }}
+                ></div>
             </div>
 
             <button onClick={girarRuleta} disabled={girando}>
