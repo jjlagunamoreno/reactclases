@@ -52,7 +52,7 @@ const Ruleta = () => {
         // Selecciona un número ganador aleatorio
         const indiceGanador = Math.floor(Math.random() * numerosRuleta.length);
         const numeroGanador = numerosRuleta[indiceGanador];
-        
+
         // Calcula la rotación necesaria para que el número ganador esté arriba
         const anguloPorNumero = 360 / numerosRuleta.length;
         const nuevoAngulo = 360 * 5 + (indiceGanador * anguloPorNumero); // 5 vueltas completas + ajuste para el número
@@ -73,7 +73,7 @@ const Ruleta = () => {
                         key={index}
                         className={`numero-ruleta ${item.color}`}
                         style={{
-                            transform: `rotate(${(index * 360) / numerosRuleta.length}deg) translateY(-100px)` // Ajuste de posicionamiento
+                            transform: `rotate(${(index * 360) / numerosRuleta.length}deg) translateY(-150px)` // Ajustamos translateY a -70px
                         }}
                     >
                         {item.numero}
