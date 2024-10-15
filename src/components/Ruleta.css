@@ -1,0 +1,137 @@
+/* Contenedor de la ruleta */
+.ruleta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Ruleta */
+.ruleta {
+    position: relative;
+    width: 200px;
+    /* Tamaño reducido de la ruleta */
+    height: 200px;
+    border: 10px solid #333;
+    border-radius: 50%;
+    background-color: green;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 4s ease-in-out;
+}
+
+/* Girar la ruleta */
+.girando {
+    transform: rotate(2160deg);
+    /* 6 vueltas completas */
+}
+
+/* Numeros de la ruleta */
+.numero-ruleta {
+    position: absolute;
+    width: 30px;
+    /* Ajuste de tamaño del número */
+    height: 20px;
+    /* Ajuste de tamaño del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    /* Ajuste de tamaño de fuente */
+    font-weight: bold;
+    transform-origin: center 100px;
+    /* Ajuste del origen */
+    transform: rotate(0deg) translateX(100px);
+    /* Ajuste de posición en la ruleta */
+}
+
+.numero-ruleta.rojo {
+    background-color: red;
+}
+
+.numero-ruleta.negro {
+    background-color: black;
+}
+
+.numero-ruleta.verde {
+    background-color: green;
+}
+
+/* Pelota */
+.pelota {
+    position: absolute;
+    top: -10px;
+    /* Ajuste de la posición de la pelota */
+    width: 15px;
+    /* Ajuste del tamaño de la pelota */
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1;
+    animation: movimientoPelota 4s linear infinite;
+}
+
+.girando-pelota {
+    animation: movimientoPelota 4s linear 1;
+}
+
+/* Animación de la pelota */
+@keyframes movimientoPelota {
+    0% {
+        transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-2160deg) translateX(120px) rotate(2160deg);
+        /* Gira en dirección opuesta */
+    }
+}
+
+/* Estilos del botón */
+button {
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ab8;
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+/* Estilo del resultado */
+.resultado {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.resultado.rojo {
+    color: red;
+}
+
+.resultado.negro {
+    color: black;
+}
+
+.resultado.verde {
+    color: green;
+}
