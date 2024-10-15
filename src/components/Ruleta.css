@@ -72,26 +72,29 @@
 /* Pelota */
 .pelota {
     position: absolute;
-    top: -10px;
+    top: 135px;
+    /* Posicionamos la pelota justo en el borde de la ruleta */
     width: 15px;
     height: 15px;
     background-color: white;
     border-radius: 50%;
     z-index: 1;
+    transform-origin: center 150px;
+    /* Ajustamos el origen de la rotación al radio de la ruleta */
     animation: movimientoPelota 4s linear infinite;
 }
 
 /* Animación de la pelota */
 @keyframes movimientoPelota {
     0% {
-        transform: rotate(0deg) translateX(130px) rotate(0deg);
-        /* Ajustamos el tamaño a 130px */
+        transform: rotate(0deg) translateX(150px) rotate(0deg);
     }
 
     100% {
-        transform: rotate(-2160deg) translateX(130px) rotate(2160deg);
+        transform: rotate(-2160deg) translateX(150px) rotate(2160deg);
     }
 }
+
 
 /* Estilos del botón */
 button {

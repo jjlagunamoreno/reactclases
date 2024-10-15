@@ -26,8 +26,9 @@ root.render(
     {/* <PadreDeportes /> */}
 
     {/* Ejercicio Sumar Números con Padre e Hijos */}
-    {/* <PadreNumeros /> */}
+    <PadreNumeros />
 
+    {/* Proyecto por mi mismo de ruleta de casino */}
     <Ruleta />
   </React.StrictMode>
 );
